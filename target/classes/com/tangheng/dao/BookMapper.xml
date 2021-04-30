@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--parameterType是传入参数类型；resultType是返回数据的类型-->
+<mapper namespace="com.tangheng.dao.BookMapper">
+    <!--name space：命名空间，唯一值的，使用dao接口的全限定名称-->
+    <!--id ：sql语法的唯一标识  resultType：表示结果类型，写类型的全限定名称-->
+    <select id="queryBookById" resultType="Books">
+        select bookID,bookName,bookCounts,detail from books where bookID= #{bookID}
+  </select>
+
+    <select id="queryAllBook" resultType="Books">
+      SELECT bookID,bookName,bookCounts,detail from books
+   </select>
+
+    <update id="updateBook" parameterType="Books">
+      update books
+      set bookName = #{bookName},bookCounts = #{bookCounts},detail = #{detail}
+      where bookID = #{bookID}
+   </update>
+
+    <delete id="deleteBookById" parameterType="int">
+      delete from books where bookID=#{bookID}
+   </delete>
+
+    <insert id="addBook" parameterType="Books">
+        insert into books(bookName,bookCounts,detail)
+      values (#{bookName}, #{bookCounts}, #{detail})
+  </insert>
+
+    <select id="queryBookByName" resultType="Books">
+      SELECT bookID,bookName,bookCounts,detail from books where bookName = #{bookName}
+   </select>
+</mapper>

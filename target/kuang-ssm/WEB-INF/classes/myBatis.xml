@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--    设置输出日志-->
+<!--    <settings>-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+<!--    </settings>-->
+
+    <typeAliases>
+        <package name="com.tangheng.pojo"/>
+    </typeAliases>
+    <mappers>
+        <package name="com.tangheng.dao"/>
+<!--        <mapper resource="com/tangheng/dao/StudentDao.xml"/>-->
+<!--        一定要区分这两种方式,是否写StudentDao.xml-->
+    </mappers>
+</configuration>
